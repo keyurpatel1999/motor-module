@@ -1,3 +1,4 @@
+import Frame from "@/app/component/Frame";
 import Image from "next/image";
 
 const motorFilters = [
@@ -52,7 +53,7 @@ const whatIsNew = [
 
 const MotorListPage = () => {
   return (
-    <div className="px-[100px]">
+    <div className="px-[100px] h-[calc(100vh-220px)] overflow-auto">
       <div className="py-[30px]">
         <div className="flex justify-between">
           <div className="text-[34px]">Find Motors (2684)</div>
@@ -64,6 +65,7 @@ const MotorListPage = () => {
                 src={"/add.svg"}
                 width={20}
                 height={20}
+                alt="add"
               />
             </span>
 
@@ -74,6 +76,7 @@ const MotorListPage = () => {
                 src={"/add.svg"}
                 width={20}
                 height={20}
+                alt="add"
               />
             </span>
 
@@ -84,6 +87,7 @@ const MotorListPage = () => {
                 src={"/add.svg"}
                 width={20}
                 height={20}
+                alt="add"
               />
             </span>
 
@@ -93,6 +97,7 @@ const MotorListPage = () => {
                 src={"/map.svg"}
                 width={20}
                 height={20}
+                alt="map"
               />
               <span>Map</span>
             </span>
@@ -103,6 +108,7 @@ const MotorListPage = () => {
                 src={"/column-wise.svg"}
                 width={21}
                 height={21}
+                alt="column"
               />
             </div>
 
@@ -112,6 +118,7 @@ const MotorListPage = () => {
                 src={"/bars.svg"}
                 width={21}
                 height={21}
+                alt="bars"
               />
             </div>
 
@@ -122,12 +129,14 @@ const MotorListPage = () => {
                   src={"/tri-up.svg"}
                   width={14}
                   height={12}
+                  alt="tri-up"
                 />
                 <Image
                   className="absolute bottom-[-4px]"
                   src={"/tri-down.svg"}
                   width={14}
                   height={12}
+                  alt="tri-down"
                 />
               </div>
               <select
@@ -143,7 +152,13 @@ const MotorListPage = () => {
             <button className="flex justify-between items-center h-[45px] bg-[#4B4CFF] text-white text-[15px] gap-x-[15px] pl-[15px] pr-[20px] rounded-[23px]">
               <div>Filters</div>
 
-              <Image className="" src={"/slider.svg"} width={20} height={20} />
+              <Image
+                className=""
+                src={"/slider.svg"}
+                width={20}
+                height={20}
+                alt="slider"
+              />
             </button>
           </div>
         </div>
@@ -197,12 +212,12 @@ const MotorListPage = () => {
 
           <div className="w-full flex flex-col gap-y-[20px] bg-[#F8F8F8] border-[1px] border-solid border-[#EDEDED] px-[12px] pt-[20px] pb-[10px] rounded-[19px]">
             <div className="text-[#4B4CFF] font-semibold text-[25px]">
-              What's New
+              {`What's New`}
             </div>
 
             {whatIsNew.map((item, index) => {
               return (
-                <div className="flex gap-x-[12px] items-center">
+                <div className="flex gap-x-[12px] items-center" key={index}>
                   <Image
                     className="rounded-full"
                     src={item.imageUrl}
@@ -235,7 +250,15 @@ const MotorListPage = () => {
               </button>
             </button>
           </div>
+
+          <div style={{ width:"80vw"}}>           
+          <Frame />
+          </div>
         </div>
+      </div>
+
+      <div className="">
+      {/* <Frame /> */}
       </div>
     </div>
   );
