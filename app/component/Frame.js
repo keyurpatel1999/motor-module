@@ -8,6 +8,8 @@ const Frame = () => {
       </div>
       <img className="absolute bottom-0 left-28" src="/phone.svg" />
       <img src="/playApp.svg" className="absolute right-28 top-12" />
+
+
     </div>
   );
 };
