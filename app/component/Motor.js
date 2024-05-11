@@ -36,34 +36,21 @@ const StarRating = ({ ratingValue, numberOfReviews }) => {
     </div>
   );
 };
-const Motor = () => {
-  const arr = [
-    {
-      image: "/Rectangle 5529.png",
-      name: "Figma ipsum component",
-      days: 5,
-      description:
-        "Antler is the investor backing the worlds most driven founders, from day zero to greatness.",
-
-      location: "Abu Dhabi, UAE",
-      reviewStars: 3,
-      numberOfReviews: 45,
-    },
-  ];
+const Motor = ({image, name,days , description, location, reviewStars, numberOfReviews }) => {
+ 
 
   return (
     <>
-      {arr ? (
-        arr?.map((item) => (
-          <div className="w-[407px] h-[485px] c-card ">
+     
+          <div className="w-[407px] h-auto c-card ">
             <div className="pb-[15rem] ">
               <div className="relative">
                 <Image
-                  className="absolute h-[241px] w-[407px]"
-                  src={`${item.image}`}
+                  className="absolute h-auto w-[407px]"
+                  src={`${image}`}
                   alt=""
                   width={407}
-                  height={241}
+                  height={0}
                 />
                 <Image
                   className="absolute h-[25px] w-[28px] top-5 right-3 "
@@ -73,7 +60,7 @@ const Motor = () => {
                   height={0}
                 />
                 <div className=" absolute object-cover text-[#fff] text-[16px] top-52 left-3">
-                  {item.days} days ago
+                  {days} days ago
                 </div>
               </div>
             </div>
@@ -81,11 +68,10 @@ const Motor = () => {
               <div className="flex w-full justify-between items-center p-2 border-[#EDEDED] border-b-2">
                 <div className="w-[80%]">
                   <div className="font-bold text-[20px] pb-1">
-                    Figma ipsum component
+                    {name}
                   </div>
                   <div className=" text-[10px]">
-                    Antler is the investor backing the world's most driven
-                    founders, from day zero to greatness.
+                   {description}
                   </div>
                 </div>
                 <div className=" rounded-full border-[#F800C0] border-2">
@@ -106,7 +92,7 @@ const Motor = () => {
                     width={0}
                     height={0}
                   />
-                  <div className="font-bold text-[12px]"> {item.location}</div>
+                  <div className="font-bold text-[12px]"> {location}</div>
                 </div>
                 <div className="border-[1px] border-[#EDEDED] h-[30px] "></div>
                 <div className="flex items-center gap-2">
@@ -117,8 +103,8 @@ const Motor = () => {
                     height={0}
                   />
                   <StarRating
-                    ratingValue={item.reviewStars}
-                    numberOfReviews={item.numberOfReviews}
+                    ratingValue={reviewStars}
+                    numberOfReviews={numberOfReviews}
                   />
                 </div>
               </div>
@@ -204,10 +190,7 @@ const Motor = () => {
               </div>
             </div>
           </div>
-        ))
-      ) : (
-        <div className="justify-center">Data not found</div>
-      )}
+      
     </>
   );
 };

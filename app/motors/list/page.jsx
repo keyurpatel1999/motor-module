@@ -1,6 +1,63 @@
 import Frame from "@/app/component/Frame";
 import Image from "next/image";
+import Motor from "@/app/component/Motor";
+const arr = [
+  {
+    image: "/Rectangle 5529.png",
+    name: "Figma ipsum component",
+    days: 5,
+    description:
+      "Antler is the investor backing the worlds most driven founders, from day zero to greatness.",
 
+    location: "Abu Dhabi, UAE",
+    reviewStars: 3,
+    numberOfReviews: 45,
+  },
+  {
+    image: "/Rectangle 5529.png",
+    name: "Figma ipsum component",
+    days: 5,
+    description:
+      "Antler is the investor backing the worlds most driven founders, from day zero to greatness.",
+
+    location: "Abu Dhabi, UAE",
+    reviewStars: 3,
+    numberOfReviews: 45,
+  },
+  {
+    image: "/Rectangle 5529.png",
+    name: "Figma ipsum component",
+    days: 5,
+    description:
+      "Antler is the investor backing the worlds most driven founders, from day zero to greatness.",
+
+    location: "Abu Dhabi, UAE",
+    reviewStars: 3,
+    numberOfReviews: 45,
+  },
+  {
+    image: "/Rectangle 5529.png",
+    name: "Figma ipsum component",
+    days: 5,
+    description:
+      "Antler is the investor backing the worlds most driven founders, from day zero to greatness.",
+
+    location: "Abu Dhabi, UAE",
+    reviewStars: 3,
+    numberOfReviews: 45,
+  },
+  {
+    image: "/Rectangle 5529.png",
+    name: "Figma ipsum component",
+    days: 5,
+    description:
+      "Antler is the investor backing the worlds most driven founders, from day zero to greatness.",
+
+    location: "Abu Dhabi, UAE",
+    reviewStars: 3,
+    numberOfReviews: 45,
+  },
+];
 const motorFilters = [
   {
     name: "Used Cars",
@@ -184,82 +241,121 @@ const MotorListPage = () => {
         </div>
       </div>
 
-      <div>
-        <div className="flex flex-col w-[400px] h-[228px] gap-y-[20px]">
-          <Image
-            className="cursor-pointer"
-            src={"/youtube-ad.png"}
-            width={400}
-            height={228}
-            alt="Youtube Ad"
-          />
+    {/* cards  */}
+  
+      <div className="grid grid-cols-12 mt-5">
+        <div className="flex flex-wrap gap-4 sm:col-span-12 md:col-span-8 lg:col-span-9">
+          {arr.map((item, key) =>
+            <Motor
 
-          <Image
-            className="cursor-pointer h-[482px]"
-            src={"/signup-now.png"}
-            width={400}
-            height={482}
-            alt="Signup Now"
-          />
+              image={item.image}
+              name={item.name}
+              days={item.days}
+              description={item.description}
+              location={item.location}
+              reviewStars={item.reviewStars}
+              numberOfReviews={item.numberOfReviews}
+            />
+          )}
 
-          <Image
-            className="cursor-pointer h-[479px]"
-            src={"/advertising.png"}
-            width={400}
-            height={479}
-            alt="Advertising"
-          />
+        </div>
+        <div className="lg:col-span-3 sm:col-span-12 md:col-span-4">
+          <div className="flex-col w-[400px] h-[228px] gap-y-[20px] ">
+            <Image
+              className="cursor-pointer"
+              src={"/youtube-ad.png"}
+              width={400}
+              height={228}
+              alt="Youtube Ad"
+            />
 
-          <div className="w-full flex flex-col gap-y-[20px] bg-[#F8F8F8] border-[1px] border-solid border-[#EDEDED] px-[12px] pt-[20px] pb-[10px] rounded-[19px]">
-            <div className="text-[#4B4CFF] font-semibold text-[25px]">
-              {`What's New`}
+            <Image
+              className="cursor-pointer h-[482px]"
+              src={"/signup-now.png"}
+              width={400}
+              height={482}
+              alt="Signup Now"
+            />
+
+            <Image
+              className="cursor-pointer h-[479px]"
+              src={"/advertising.png"}
+              width={400}
+              height={479}
+              alt="Advertising"
+            />
+
+            <div className="w-full flex flex-col gap-y-[20px] bg-[#F8F8F8] border-[1px] border-solid border-[#EDEDED] px-[12px] pt-[20px] pb-[10px] rounded-[19px]">
+              <div className="text-[#4B4CFF] font-semibold text-[25px]">
+                {`What's New`}
+              </div>
+
+              {whatIsNew.map((item, index) => {
+                return (
+                  <div className="flex gap-x-[12px] items-center" key={index}>
+                    <Image
+                      className="rounded-full"
+                      src={item.imageUrl}
+                      width={70}
+                      height={70}
+                      alt="MJ Cars"
+                    />
+
+                    <div
+                      className="text-black text-[18px] leading-8"
+                      dangerouslySetInnerHTML={{
+                        __html: item.title,
+                      }}
+                    ></div>
+                  </div>
+                );
+              })}
+
+              <button className="min-h-[56px] flex justify-between items-center border border-solid border-[#003DCA] pl-[25px] pr-[6px] rounded-[20px]">
+                <div className="text-[21px]">View All</div>
+
+                <button className="w-[68px] h-[44px] bg-[#4B4CFF] flex justify-center items-center rounded-[21px]">
+                  <Image
+                    className="cursor-pointer h-[44px]"
+                    src={"/arrow-right.svg"}
+                    width={21}
+                    height={15}
+                    alt="Advertising"
+                  />
+                </button>
+              </button>
             </div>
 
-            {whatIsNew.map((item, index) => {
-              return (
-                <div className="flex gap-x-[12px] items-center" key={index}>
-                  <Image
-                    className="rounded-full"
-                    src={item.imageUrl}
-                    width={70}
-                    height={70}
-                    alt="MJ Cars"
-                  />
 
-                  <div
-                    className="text-black text-[18px] leading-8"
-                    dangerouslySetInnerHTML={{
-                      __html: item.title,
-                    }}
-                  ></div>
-                </div>
-              );
-            })}
-
-            <button className="min-h-[56px] flex justify-between items-center border border-solid border-[#003DCA] pl-[25px] pr-[6px] rounded-[20px]">
-              <div className="text-[21px]">View All</div>
-
-              <button className="w-[68px] h-[44px] bg-[#4B4CFF] flex justify-center items-center rounded-[21px]">
-                <Image
-                  className="cursor-pointer h-[44px]"
-                  src={"/arrow-right.svg"}
-                  width={21}
-                  height={15}
-                  alt="Advertising"
-                />
-              </button>
-            </button>
           </div>
 
-          <div style={{ width:"80vw"}}>           
-          <Frame />
-          </div>
         </div>
       </div>
+    
+        <div className="bg-[#F2F3F5]">
+          <div className="flex">
+            
+          </div>
+          <div className="flex flex-wrap">
+        {arr.map((item, key) =>
+            <Motor
 
-      <div className="">
-      {/* <Frame /> */}
+              image={item.image}
+              name={item.name}
+              days={item.days}
+              description={item.description}
+              location={item.location}
+              reviewStars={item.reviewStars}
+              numberOfReviews={item.numberOfReviews}
+            />
+          )}
+        </div>
+    
       </div>
+      <div>
+        <Frame />
+      </div>
+
     </div>
   );
 };
