@@ -334,7 +334,9 @@ const MotorListPage = () => {
     
         <div className="bg-[#F2F3F5]">
           <div className="flex">
-            
+            <div>
+              View all
+            </div>
           </div>
           <div className="flex flex-wrap">
         {arr.map((item, key) =>
