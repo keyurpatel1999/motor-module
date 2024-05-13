@@ -1,6 +1,7 @@
 import Frame from "@/app/component/Frame";
 import Image from "next/image";
 import Motor from "@/app/component/Motor";
+
 import Blog from "@/app/component/blog";
 const arr = [
   {
@@ -242,13 +243,13 @@ const MotorListPage = () => {
         </div>
       </div>
 
-      {/* cards  */}
-
+    {/* cards  */}
+  
       <div className="grid grid-cols-12 mt-5">
         <div className="flex flex-wrap gap-4 sm:col-span-12 md:col-span-8 lg:col-span-9">
-          {arr.map((item, key) => (
+          {arr.map((item, i) =>
             <Motor
-              key={key}
+            key={i + item.id}
               image={item.image}
               name={item.name}
               days={item.days}
@@ -257,7 +258,8 @@ const MotorListPage = () => {
               reviewStars={item.reviewStars}
               numberOfReviews={item.numberOfReviews}
             />
-          ))}
+          )}
+
         </div>
         <div className="lg:col-span-3 sm:col-span-12 md:col-span-4">
           <div className="flex-col w-[400px] h-[228px] gap-y-[20px] ">
@@ -325,18 +327,23 @@ const MotorListPage = () => {
                 </button>
               </button>
             </div>
+
+
           </div>
+
         </div>
       </div>
-
-      <div className="bg-[#F2F3F5]">
-        <div className="flex">
-          <div>View all</div>
-        </div>
-        <div className="flex flex-wrap">
-          {arr.map((item, key) => (
+    
+        <div className="bg-[#F2F3F5]">
+          <div className="flex">
+            <div>
+              View all
+            </div>
+          </div>
+          <div className="flex flex-wrap">
+        {arr.map((item, i) =>
             <Motor
-              key={key}
+               key={item.id + i}
               image={item.image}
               name={item.name}
               days={item.days}
@@ -345,16 +352,17 @@ const MotorListPage = () => {
               reviewStars={item.reviewStars}
               numberOfReviews={item.numberOfReviews}
             />
-          ))}
+          )}
         </div>
-      </div>
-      <div className="mt-3">
-        <Blog />
+    
       </div>
       <div>
         <Frame />
       </div>
+    
+
     </div>
+    
   );
 };
 
